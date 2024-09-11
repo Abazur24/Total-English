@@ -1,0 +1,33 @@
+.signupin-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .signupin-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .signupin-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .signupin-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .signupin-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .signupin-button:hover {
+    background-color: #555;
+  }
