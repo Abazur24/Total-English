@@ -6,7 +6,7 @@ import SignupPage from "./pages/signupPage/SignupPage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import CoursesPage from "./pages/coursesPage/CoursesPage";
 import DashboardPage from "./pages/dashboardPage/DashboardPage";
-import QuizzesPage from "./pages/quizzesPage/QuizzesPage";
+import QuizzesPage from "./pages/QuizzesPage/QuizzesPage";
 import VcPage from "./pages/VcPage/VirtualClassroom";
 import FinancePage from "./pages/financePage/FinancePage";
 import SalesPage from "./pages/salesPage/SalesPage";
