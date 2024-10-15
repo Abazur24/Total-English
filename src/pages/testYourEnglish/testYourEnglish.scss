@@ -1,0 +1,101 @@
+.test-your-english-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a5d8ff;
+    padding: 2rem;
+    width: 100vw;
+  
+    /* New flex container for logo and content */
+    .content-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem; /* Space between the logo and content */
+    }
+  
+    /* Logo styles */
+    .cambridge-logo {
+      max-width: 300px; /* Adjust the logo size */
+      height: auto;
+    }
+  
+    .content-wrapper {
+      text-align: center;
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    h1 {
+      font-size: 3.5rem;
+      color: #2d3748;
+      margin-bottom: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+  
+    p {
+      font-size: 1.5rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+      font-family: 'Roboto Slab', serif;
+    }
+  
+    .styled-button {
+      padding: 1rem 2.5rem;
+      font-size: 1.25rem;
+      color: #ffffff;
+      background-color: #48bb78;
+      border: none;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: bold;
+  
+      &:hover {
+        background-color: #38a169;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+  
+      &:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .content-container {
+      flex-direction: column; /* Stack logo and content on small screens */
+      align-items: center;
+    }
+  
+    .cambridge-logo {
+      margin-bottom: 1.5rem; /* Add space between logo and content */
+      
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    p {
+      font-size: 1.25rem;
+    }
+  
+    .styled-button {
+      padding: 0.75rem 2rem;
+      font-size: 1.15rem;
+    }
+  }

@@ -1,0 +1,79 @@
+// loginPage.scss
+
+.login-container {
+    padding: 2rem; // Equivalent to 'p-8'
+    width: 30%;
+    min-height: 50vh; 
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #374151;
+    border-radius: 12px; 
+    margin-top: 200px;
+    background-color: #f3f4f6; // Gray-100 background
+  
+    h2 {
+      font-size: 1.875rem; // Equivalent to 'text-3xl'
+      font-weight: bold; // Equivalent to 'font-bold'
+      margin-bottom: 1.5rem; // Equivalent to 'mb-6'
+      text-align: center; // Equivalent to 'text-center'
+      color: #1e4f3e;
+    }
+  
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+  
+    
+      button {
+        background: linear-gradient(to right, #1e4f3e, #10b981); // Gradient background
+        color: #fff; // White text
+        border: none;
+        border-radius: 0.25rem; // Equivalent to 'rounded'
+        padding: 0.5rem; // Equivalent to 'p-2'
+        cursor: pointer;
+ 
+        &:hover {
+          background: linear-gradient(to right, #1e4f3e, #059669); // Darker green on hover
+        }
+      }
+
+    }
+  .form-err{
+    color: crimson;
+    font-size: 0.8em;
+    margin-top: 1em;
+
+    &::before{
+      content: '* ';
+    }
+  }
+  
+    .signup-prompt {
+        padding: 16px 32px;
+        background-color: rgba(255, 255, 255, 0.5); /* gray-900 bg-opacity-50 */
+        display: flex;
+        justify-content: center;
+        margin-top: 24px; /* adjust as needed */
+        border-radius: 8px; /* rounded-lg */
+        border: 1px solid #374151;
+  
+      p {
+        font-size: 0.875rem; // Equivalent to 'text-sm'
+        color: #9ca3af; // Light gray text
+  
+        a {
+          color: #188d4c; /* text-green-400 */
+          font-weight: 700;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline; // Underline on hover
+          }
+        }
+      }
+    }
+  }
+  

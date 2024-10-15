@@ -1,0 +1,240 @@
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.landing-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: hidden; /* Prevent vertical overflow */
+}
+/* Main container for the landing page */
+.landing-page {
+  scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
+  overflow-y: auto; /* Allows vertical scrolling */
+  scrollbar-width: 0;
+  height: 100vh; /* Ensures the container takes up the full viewport height */
+  width: 100%; /* Full width of viewport */
+  flex: 1;
+  position: relative;
+  .section {
+    height: 100vh; /* Full viewport height for each section */
+    width: 100%; /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    scroll-snap-align: start; /* Scroll snapping alignment */
+    transition: background-color 0.5s ease;
+    &:nth-child(odd) {
+      background-color: #EDF2F7;
+    }
+    h1, h2 {
+      font-size: 2.5rem;
+      color: #2D3748;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.25rem;
+      color: #4A5568;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 100%;
+      line-height: 1.6;
+    }
+    .styled-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      background-color: #48BB78;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      &:hover {
+        background-color: #38A169;
+        transform: scale(1.05);
+      }
+    }
+
+    .card-button{
+      color: #FFFFFF;
+      background-color: #48BB78;
+      text-decoration: none;
+      width:22rem;
+      border-radius: 0.5rem;
+      margin-top: 2rem;
+      padding: 10px 20px ;
+      font-size: 1.25rem;
+      &:hover {
+        background-color: #38A169;
+      }
+    }
+    .course-img {
+      margin-top: 0.5rem;
+      height: 10rem;
+      // object-fit: cover; /* Ensures the image covers the entire area */
+      border-radius: 0.5rem;
+    }
+  }
+  /* Welcome Section Styling */
+  .welcome {
+    background-image: url('../../assets/images/hero-section.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    h1 {
+      font-size: 5rem;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: rem;
+      max-width: 90%;
+      line-height: 1.2;
+      color: #E6EAF2;
+    }
+    /* Transparent card overlay */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.2); /* Transparent background */
+      padding: 2rem;
+      border-radius: 0.5rem;
+      width: 80%; /* Card spans 80% of the section */
+      max-width: 1200px;
+      text-align: center;
+      z-index: 1;
+      p {
+        color: #E6EAF2; /* Dark text for readability */
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .scroll-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+        color: #FFFFFF;
+        background-color: #48BB78;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        &:hover {
+          background-color: #38A169;
+          transform: scale(1.05);
+        }
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(49, 49, 49, 0.5); /* Dark overlay to improve text contrast */
+      z-index: 0;
+    }
+  }
+  /* ---------------- gifty start --------------- */
+
+  /* ---------------- gifty ends ---------------- */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: -3rem;
+    width: 100%; /* Ensure container stays within viewport */
+  }
+
+  .card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.75rem;
+    padding: 1rem; //****
+    width: 35rem;
+    height:20rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    h3 {
+      font-size: 1.3rem;
+      color: #2D3748;
+      margin-bottom: 1rem;
+    }
+    button {
+      background-color: #48BB78;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      margin-top: auto;
+      &:hover {
+        background-color: #38A169;
+      }
+    }
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+  /* Responsive Design for smaller devices */
+  @media (max-width: 768px) {
+    .section {
+      height: 100vh; /* Full height for each section */
+      padding: 1rem; /* Reduced padding on smaller screens */
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: 1fr; /* Single column layout for smaller screens */
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .card {
+      width: 100%;
+      padding: 1rem;
+      margin: 0;
+    }
+    .course-img {
+      height: 10rem; /* Smaller image for smaller screens */
+    }
+    .hero-card {
+      width: 90%; /* Card width adjustment for smaller screens */
+    }
+    .welcome {
+      h1 {
+        font-size: 3rem; /* Smaller font size for smaller screens */
+        margin-bottom: 3rem; /* Reduced margin for smaller screens */
+      }
+    }
+  }
+  /* Responsive Design for larger screens */
+  @media (min-width: 769px) {
+    .section {
+      height: 100vh;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+  }
+}

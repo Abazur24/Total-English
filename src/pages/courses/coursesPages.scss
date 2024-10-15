@@ -1,0 +1,124 @@
+.course-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure full viewport height for centering */
+  padding: 2rem;
+  background-color: #f7fafc; /* Light gray background */
+  width: 100%;
+
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align text and button to the top */
+    flex-direction: row; /* Align text and image horizontally */
+    background-color: #fff5cd;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 1600px;
+    width: 100%;
+    height: 80%;
+    gap: 2rem; /* Space between text and image */
+  }
+
+  .text-section {
+    flex: 1; /* Allow text to take up half the available space */
+    max-width: 50%;
+    text-align: left;
+    display: flex; /* Added */
+  flex-direction: column; /* Ensure elements stack vertically */
+  align-items: flex-start;
+    
+
+    h1 {
+      font-size: 2.8rem;
+      color: #2d3748;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .description {
+      font-size: 1.5rem;
+      color: #4a5568;
+      font-family: 'Roboto Slab', serif;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .contact-button {
+      margin-top: 1rem; /* Ensure space between text and button */
+      padding: 1rem 2.5rem;
+      background-color: #48bb78;
+      color: white;
+      font-size: 1.25rem;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+      font-weight: bold;
+      text-align: center; /* Align button to the left */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: #38a169;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  .image-section {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .course-image {
+      width: 600px;
+      height: 600px; 
+      object-fit: cover;
+      
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for focus */
+    }
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Stack text and image vertically */
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .text-section {
+    max-width: 100%;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .description {
+      font-size: 1.25rem;
+    }
+
+    .contact-button {
+      font-size: 1.15rem;
+      padding: 10px 30px; /* Adjust button padding for smaller screens */
+    }
+  }
+
+  .image-section {
+    max-width: 100%;
+    
+    .course-image {
+      width: 100%; /* Ensure image takes full width on smaller screens */
+      height: auto;
+      max-height: 250px; /* Adjust max height on smaller screens */
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.footer {
+  background-color: #2d3748; /* Dark gray background matching navbar */
+  color: #ffffff; /* White text */
+  text-align: center;
+  padding: 2rem 0; /* Padding for consistency with navbar */
+  font-size: 1rem; /* Make sure font size is consistent with navbar */
+  // margin-top: auto;
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Spacing between social links */
+    
+    a {
+      color: #ffffff;
+      font-size: 1.25rem; /* Consistent font size with navbar */
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #68d391; /* Light green hover effect */
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 1rem; /* Spacing for social links */
+    font-size: 1.1rem;
+  }
+}

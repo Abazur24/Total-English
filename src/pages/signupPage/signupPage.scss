@@ -1,0 +1,62 @@
+.signup-page-container {
+    padding: 32px;
+    width: 30%;
+    min-height: 50vh;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #374151;
+    border-radius: 12px;
+    margin-top: 100px;
+    background-color: #f3f4f6;
+  
+    h2.signup-heading {
+      font-size: 1.875rem; /* 3xl */
+      font-weight: 700; /* bold */
+      margin-bottom: 24px; /* 6 */
+      text-align: center;
+      color: #137351;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      button {
+        background: linear-gradient(to right, #1e4f3e, #10b981); // Gradient background
+        color: #fff; // White text
+        border: none;
+        border-radius: 0.25rem; // Equivalent to 'rounded'
+        padding: 0.5rem; // Equivalent to 'p-2'
+        cursor: pointer;
+ 
+        &:hover {
+          background: linear-gradient(to right, #1e4f3e, #059669); // Darker green on hover
+        }
+      }
+    }
+  
+    .login-prompt {
+      padding: 16px 32px;
+      background-color: rgba(255, 255, 255, 0.5); /* gray-900 bg-opacity-50 */
+      display: flex;
+      justify-content: center;
+      margin-top: 24px; /* adjust as needed */
+      border-radius: 8px; /* rounded-lg */
+      border: 1px solid #374151; 
+      color: #9ca3af; /* text-gray-400 */
+    }
+  
+    .login-link {
+      color: #188d4c; /* text-green-400 */
+      font-weight: 700;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  

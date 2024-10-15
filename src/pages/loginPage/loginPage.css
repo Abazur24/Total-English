@@ -1,0 +1,54 @@
+.login-container {
+  padding: 2rem;
+  width: 40%;
+  min-height: 100vh;
+  margin: 0 auto; /* Center horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #374151; /* Adding a border around the container */
+  border-radius: 12px; /* Rounded corners for a smoother look */
+}
+.login-container h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #10b981;
+}
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.login-container form button {
+  background: linear-gradient(to right, #34d399, #10b981);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.login-container form button:hover {
+  background: linear-gradient(to right, #10b981, #059669);
+}
+.login-container .signup-prompt {
+  padding: 16px 32px;
+  background-color: rgba(179, 177, 177, 0.5); /* gray-900 bg-opacity-50 */
+  display: flex;
+  justify-content: center;
+  margin-top: 24px; /* adjust as needed */
+  border-radius: 8px; /* rounded-lg */
+  border: 1px solid #374151;
+}
+.login-container .signup-prompt p {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+.login-container .signup-prompt p a {
+  color: #34d399;
+  text-decoration: none;
+}
+.login-container .signup-prompt p a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=loginPage.css.map */

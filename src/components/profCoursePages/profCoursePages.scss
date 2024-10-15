@@ -1,0 +1,67 @@
+.content-prof{
+display: flex;
+display: block;
+flex-wrap: wrap;
+height: 100vh; /* Full viewport height for each section */
+width: 100%; /* Full viewport width */
+display: flex;
+align-items: center;
+padding: 2rem;
+margin-top: 0rem;
+scroll-snap-align: start; /* Scroll snapping alignment */
+background-color: #A5D8FF;
+transition: background-color 0.5s ease;
+}
+.contact-button-prof{
+    color: #FFFFFF;
+      background-color: #48BB78;
+      text-decoration: none;
+      width:22rem;
+      border-radius: 0.5rem;
+      margin-left: 69rem;
+      margin-top: 5rem;
+      margin-bottom: 20rem;
+      padding: 10px 20px ;
+      font-size: 1.25rem;
+      border: none;
+      box-shadow: 10px 10px 10px 10px rgba(0, 1, 0, 0.1);
+      &:hover {
+        background-color: #38A169;
+}
+}
+.text-prof{
+  margin-top: 5rem;
+  margin-left: 7rem;
+}
+.heading-prof{
+  font-size:2.5rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-top: 7rem;
+}
+.description-prof{
+    font-size: 1.3rem;
+    color: #4A5568;
+    margin-right: 5rem;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.6;
+}
+.container-prof{
+background-color: #A5D8FF;
+border: none;
+border-radius: 0.75rem;
+margin-right: 15rem;
+margin-top: 10rem;
+padding: 2rem;
+width: 35rem;
+height:24rem;
+box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.picture-prof{
+    height: 20rem;
+    width:30rem ;
+    object-fit:cover;
+    border-radius: 1rem;
+}

@@ -1,0 +1,34 @@
+.contact-button {
+  padding: 10px 20px;
+  background-color: #48bb78;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 45rem;
+}
+.contact-button:hover {
+  background-color: #0056b3;
+}
+
+.container {
+  display: flex;
+  display: block;
+}
+
+.picture {
+  margin-top: 10rem;
+  margin-left: 30rem;
+  margin-bottom: 2rem;
+  height: 20rem;
+}
+
+.text {
+  width: 30rem;
+  margin-left: 10rem;
+  margin-top: 10rem;
+}
+
+.description {
+  margin-top: 1rem;
+}/*# sourceMappingURL=healthcarePage.css.map */

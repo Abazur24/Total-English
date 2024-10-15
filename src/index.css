@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Global body styles */
+body {
+  font-family: 'Roboto Slab', serif; /* Apply Roboto Slab for the body text */
+  background-color: #f7fafc; /* Light gray background */
+  color: #2d3748; /* Dark gray text color */
+  overflow-x: hidden;
+  scroll-behavior: smooth; /* Smooth scrolling behavior */
+}
+

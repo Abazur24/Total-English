@@ -1,0 +1,54 @@
+.profile {
+  display: flex;
+  height: 100%;
+}
+.profile .details {
+  flex: 3;
+  overflow-y: scroll;
+}
+.profile .details .wrapper {
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.profile .details .wrapper .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile .details .wrapper .title h1 {
+  font-weight: 300;
+}
+.profile .details .wrapper .title button {
+  padding: 12px 24px;
+  background-color: #fece51;
+  cursor: pointer;
+  border: none;
+}
+.profile .details .wrapper .info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile .details .wrapper .info span {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.profile .details .wrapper .info button {
+  width: 100px;
+  background-color: teal;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.profile .details .wrapper .info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=profile.css.map */

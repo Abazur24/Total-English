@@ -1,0 +1,14 @@
+.layout {
+  display: flex;
+  flex-direction: column; /* Stack the navbar, content, and footer vertically */
+  min-height: 100vh; /* Ensure the layout takes the full viewport height */
+
+.content {
+  flex: 1; /* Make the content area grow to fill available space */
+<<<<<<< HEAD
+  height: 100%;
+=======
+  min-height: 100vh;
+>>>>>>> 2658a06 (update calendar)
+}
+}

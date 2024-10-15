@@ -1,0 +1,27 @@
+.sidebar{
+  margin-top:100px;
+}
+  .sidebar-item {
+      
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    
+      &:hover {
+        background-color: #e4e4e4; /* Light gray background on hover */
+        color: #333; /* Dark text color on hover */
+      }
+    
+      .sidebar-item-icon {
+        margin-right: 10px;
+        color: #555; /* Default icon color */
+        font-size: 1.25rem; /* Adjust icon size as needed */
+      }
+    
+      .sidebar-item-label {
+        font-size: 1rem; /* Label font size */
+        font-weight: 500; /* Slightly bold text */
+      }
+    }

@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e3acac;
+}
+
+header {
+  background-color: #e0e0e0;
+  padding: 10px;
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      background-color: #f90;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+
+      li {
+        margin: 0 15px;
+
+        a {
+          text-decoration: none;
+          color: #333;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+}
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    .course-card {
+      background-color: #f50909; // Card background color
+      height: 20rem;
+      width: 35rem;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Shadow added
+      text-decoration: none; // Remove underline from the link
+    
+      &:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Slightly larger shadow on hover
+        transform: translateY(-5px); // Lift effect on hover
+        cursor: pointer; // Show pointer when hovering over the card
+      }
+    
+      .course-content {
+        padding: 2rem;
+        color: #333; // Text color
+    
+        h2 {
+          margin: 0;
+          font-size: 18px;
+        }
+      }
+    
+      .learn-more-btn {
+        margin-top: 12rem;
+        padding: 1rem 2rem;
+        background-color: #48bb78; // Button background color
+        color: white; // Button text color
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+    
+        &:hover {
+          background-color: #bf6f00; // Darker color on hover
+        }
+      }
+    };
+  }
