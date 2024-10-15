@@ -4,7 +4,7 @@ html {
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%;
+  widith: 100%;
   height: 100%;
 }
 .landing-page-container {
@@ -159,10 +159,11 @@ body, html {
     margin-top: 0.5rem;
     margin-bottom: -3rem;
     width: 100%; /* Ensure container stays within viewport */
+    background-color: #a5d7fd;
   }
 
   .card {
-    background-color: #FFFFFF;
+    background-color: #ffffffb3;
     border: 1px solid #E2E8F0;
     border-radius: 0.75rem;
     padding: 1rem; //****
