@@ -18,7 +18,7 @@ body, html {
 /* Main container for the landing page */
 .landing-page {
   scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
-  overflow-y: auto; /* Allows vertical scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
   scrollbar-width: 0;
   height: 100vh; /* Ensures the container takes up the full viewport height */
   width: 100%; /* Full width of viewport */
@@ -200,12 +200,13 @@ body, html {
   /* Responsive Design for smaller devices */
   @media (max-width: 768px) {
     .section {
-      height: 100vh; /* Full height for each section */
-      padding: 1rem; /* Reduced padding on smaller screens */
+      height: 100vh; 
+      padding: 1rem; 
     }
+    
     .card-container {
       display: grid;
-      grid-template-columns: 1fr; /* Single column layout for smaller screens */
+      grid-template-columns: 1fr; 
       gap: 1rem;
       margin-top: 2rem;
     }
@@ -215,15 +216,25 @@ body, html {
       margin: 0;
     }
     .course-img {
-      height: 10rem; /* Smaller image for smaller screens */
+      height: 10rem; 
     }
     .hero-card {
       width: 90%; /* Card width adjustment for smaller screens */
     }
     .welcome {
       h1 {
-        font-size: 3rem; /* Smaller font size for smaller screens */
-        margin-bottom: 3rem; /* Reduced margin for smaller screens */
+        font-size: 3rem; 
+        margin-bottom: 1rem; 
+      }
+      .hero-card {
+        p {
+          font-size: 1.7rem; 
+          margin-bottom: 1rem; 
+        }
+        .scroll-button {
+          padding: 1rem 1rem; 
+          font-size: 1.5rem; 
+        }
       }
     }
   }
