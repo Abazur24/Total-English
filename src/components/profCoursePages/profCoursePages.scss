@@ -4,7 +4,6 @@ display: block;
 flex-wrap: wrap;
 height: 100vh; /* Full viewport height for each section */
 width: 100%; /* Full viewport width */
-display: flex;
 align-items: center;
 padding: 2rem;
 margin-top: 0rem;
@@ -59,9 +58,198 @@ height:24rem;
 box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.picture-prof{
-    height: 20rem;
-    width:30rem ;
-    object-fit:cover;
-    border-radius: 1rem;
+
+
+/* Default styles (Desktop screens above 1440px) */
+.content-prof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 4rem;
+}
+
+.text-prof {
+  flex: 1;
+  margin-top: 2rem;
+  margin-right:2rem;
+}
+
+.heading-prof {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.description-prof {
+  font-size: 1.1rem;
+  color: #4a5568;
+  text-align: left;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.container-prof {
+  flex: 1;
+  margin-right: 0;
+  margin-bottom: 2rem;
+  height: auto;
+}
+
+.picture-prof {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.contact-button-prof {
+  width: 22rem;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  border: none;
+  background-color: #48bb78;
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  box-shadow: 10px 10px 10px rgba(0, 1, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.contact-button-prof:hover {
+  background-color: #38a169;
+}
+
+/* Styles for screens with max-width: 1800px */
+@media only screen and (max-width: 1800px) {
+  .content-prof {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .text-prof {
+    flex: 1 1 48%; 
+    margin-left: 0;
+  }
+
+  .heading-prof{
+text-align: center;
+
+  }
+
+  .description-prof {
+    font-size: 1.1rem;
+    margin-right: 0;
+    margin-bottom:-10% ;
+    text-align: center;
+  }
+  .container-prof {
+    flex: 1 1 48%; 
+    margin-bottom: 2rem;
+  }
+
+  .contact-button-prof {
+    width: 80%;
+    margin-left: 10rem;
+    margin-right: 0;
+    margin-top: 3rem;
+    padding: 10px;
+  }
+}
+
+/* Styles for screens with max-width: 1023px (Tablets) */
+@media only screen and (max-width: 1023px) {
+  .content-prof {
+    display: block;
+    padding: 5rem;
+    height: auto;
+  }
+
+  .text-prof {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .heading-prof {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .description-prof {
+    display: flex;
+   justify-content: center;
+    font-size: 1.1rem;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .container-prof {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+
+  .picture-prof {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .contact-button-prof {
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 0;
+    margin-top: 1rem;
+    padding: 10px;
+  }
+}
+
+
+/* Styles for screens with max-width: 767px (Mobile) */
+@media only screen and (max-width: 767px) {
+  .content-prof {
+    display: block;
+    padding: 2rem;
+    height: auto;
+  }
+
+  .text-prof {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .heading-prof {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .description-prof {
+    font-size: 1.1rem;
+    margin-right: 0;
+    margin-bottom:-10% ;
+    text-align: center;
+  }
+
+  .container-prof {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .picture-prof {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .contact-button-prof {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3rem;
+    padding: 10px;
+  }
 }
