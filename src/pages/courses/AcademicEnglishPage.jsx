@@ -1,9 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './coursesPages.scss';
 import academicImage from '../../assets/images/academic.png';
+import ContactFormModal from '../../components/ContactFormModal'; // Import the modal
 
 const AcademicPage = () => {
+  const [isModalOpen, setModalOpen] = useState(false); // Manage modal state
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className="course-container academic-english">
       <div className="content-wrapper">
@@ -15,12 +25,15 @@ const AcademicPage = () => {
           <p className="description">
             This course focuses on developing essential language skills, such as reading, writing, listening, and speaking, to help learners succeed in academic settings.
           </p>
-          <Link to="/academic" className="contact-button-pages">Contact Our Manager</Link>
+          <button onClick={handleOpenModal} className="contact-button-pages">Contact Our Manager</button>
         </div>
         <div className="image-section">
           <img className="course-image" src={academicImage} alt="Academic English" />
         </div>
       </div>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

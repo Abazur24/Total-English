@@ -11,6 +11,7 @@
 /* Default content-wrapper style */
 .content-wrapper {
   display: flex;
+  margin-top: 4rem;
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: row;
@@ -56,6 +57,7 @@
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
     font-weight: bold;
     text-align: center;
+    border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     float: center;
     text-decoration: none;
