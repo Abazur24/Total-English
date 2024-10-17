@@ -1,21 +1,24 @@
 import "./loginPage.scss";
 import { Mail, Lock } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/input/Input";
 import config from '../../config/config.js';
+import loadingIcon from '../../assets/images/loading.svg'
+import { AuthContext } from "../../context/AuthContext";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("daniel@gmail.com");
+  const [password, setPassword] = useState("Daniel123!");
   const [err, setErr] = useState('');
-  const [token, setToken] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const {currentUser, updateUser} = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true)
     try {
 
       const res = await fetch(`${config.apiUrl}/login`, {
@@ -28,10 +31,13 @@ const LoginPage = () => {
         console.log(errorData.message) // message: user not found
         throw new Error(errorData.message || "Login failed");
       }
+      setLoading(false)
+      const user = await res.json();
 
-      setToken(await res.json())      
+      updateUser(user)  
       navigate("/dashboard");
     } catch (err) {
+      setLoading(false)
       setErr(err.message)
     }
   };
@@ -56,7 +62,10 @@ const LoginPage = () => {
         />
         <button>Login</button>
       </form>
-
+      {loading &&
+        (<div className="loading-cont">
+        <img src={loadingIcon} alt="loading-icon" />
+      </div>)}
       {err&&(
         <span className="form-err">
           {err}
