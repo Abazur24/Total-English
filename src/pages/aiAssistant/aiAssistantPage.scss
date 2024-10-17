@@ -20,8 +20,9 @@
   
     .chat-button {
       padding: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
       font-size: 1.2rem;
-      background-color: #48bb78;
+      background-color: #464c4a;
       color: #fff;
       border: none;
       border-radius: 5px;
@@ -34,35 +35,37 @@
     }
   
     .chat-window {
-      margin-top: 2rem;
-      max-width: 600px;
+      margin-top: 3rem;
+      margin: 0 auto;
+      max-width: 90%;
       width: 100%;
       background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 400px;
+      height: 500px; /* Fixed height to ensure proper scrolling */
   
       .chat-messages {
         flex-grow: 1;
-        overflow-y: auto;
-        margin-bottom: 1rem;
+        overflow-y: auto; /* Enable scrolling inside chat messages */
         padding-right: 1rem;
+        max-height: 400px; /* Set max height for messages to control overflow */
       }
   
       .chat-message {
         margin-bottom: 0.75rem;
+        margin: 0 auto;
         padding: 0.75rem 1rem;
         border-radius: 10px;
-        max-width: 70%;
+        max-width: 80%;
         word-wrap: break-word;
       }
   
       .chat-message.user {
-        background-color: #48bb78;
+        background-color: #86b69a;
         color: white;
         align-self: flex-end;
       }
