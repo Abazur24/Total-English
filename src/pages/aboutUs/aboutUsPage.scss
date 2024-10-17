@@ -1,0 +1,50 @@
+.about-us-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 4rem 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #a4cb97;
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    padding-top: 7rem; /* Offset from the fixed navbar height */
+}
+
+.about-us-content {
+    background-color: #fff;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #4a5568;
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .about-us-container {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
