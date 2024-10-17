@@ -28,40 +28,36 @@ import {pages, ProfCoursePages} from "./components/profCoursePages/ProfCoursePag
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/', // Main layout and route
+      path: "/", // Main layout and route
       element: <Layout />,
       children: [
-        { path: '/', element: <LandingPage /> }, // Landing page
-        { path: '/test-your-english', element: <TestYourEnglish /> }, // New Test Your English page
-        { path: '/dashboard', element: <DashboardPage /> }, // Dashboard
-        { path: '/login', element: <LoginPage /> }, // Login
-        { path: '/signup', element: <SignupPage /> }, // Signup       
-        { path: '/courses', element: <CoursesPage /> }, // Courses page
-        { path: '/quizzes', element: <QuizzesPage /> }, // Quizzes
-        { path: '/virtual-classroom', element: <VcPage /> }, // Virtual Classroom
-        { path: '/video-lessons', element: <AllCourses />},
-        { path:'/video-lessons/:id',element: <VideoLessons />},
-        { path: "/healthcare", element: <ProfCoursePages {...pages.healthcarePage} /> }, // Healthcare course
+        { path: "/", element: <LandingPage /> }, // Landing page
+        { path: "/test-your-english", element: <TestYourEnglish /> }, // New Test Your English page
+        { path: "/dashboard", element: <DashboardPage /> }, // Dashboard
+        { path: "/login", element: <LoginPage /> }, // Login
+        { path: "/signup", element: <SignupPage /> }, // Signup
+        { path: "/courses", element: <CoursesPage /> }, // Courses page
+        { path: "/quizzes", element: <QuizzesPage /> }, // Quizzes
+        { path: "/virtual-classroom", element: <VcPage /> }, // Virtual Classroom
+        { path: "/video-lessons", element: <AllCourses /> },
+        { path: "/healthcare", element: <ProfCoursePages {...pages.healthcarePage} />,}, // Healthcare course
         { path: "/academic", element: <AcademicEnglishPage /> }, // Academic English course
         { path: "/business", element: <BusinessEnglishPage /> }, // Business English course
         { path: "/general-english", element: <GeneralEnglishPage /> }, // General English course
-        { path: "/english-for-travelling", element: <EnglishForTravellingPage /> }, // English for Travelling course
+        { path: "/english-for-travelling", element: <EnglishForTravellingPage />}, // English for Travelling course
         { path: "/english-for-children", element: <EnglishForChildrenPage /> }, // English for Children course
         { path: "/finance", element: <ProfCoursePages {...pages.finance} /> },
-        { path: "/sales", element: <ProfCoursePages {...pages.sales}/>  },
-        { path: "/lawyers", element: <ProfCoursePages {...pages.lawyers}/> },
-        { path: "/it", element: <ProfCoursePages {...pages.ItPage}/> },
-        { path: "/humanresourses", element: <ProfCoursePages {...pages.HumanresoursesPage} /> },
+        { path: "/sales", element: <ProfCoursePages {...pages.sales} /> },
+        { path: "/lawyers", element: <ProfCoursePages {...pages.lawyers} /> },
+        { path: "/it", element: <ProfCoursePages {...pages.ItPage} /> },
+        { path: "/humanresourses", element: <ProfCoursePages {...pages.HumanresoursesPage} />},
         { path: "*", element: <NotFoundPage /> }, // 404 page for unknown routes
       ],
     },
-    {
-      path: '/', 
-      element: <RequiredAuthLayout />,
+    { path: "/", element: <RequiredAuthLayout />,
       children: [
-        { 
-          path: '/dashboard', 
-          element: <DashboardPage /> }, 
+        { path: "/dashboard", element: <DashboardPage />},
+        { path: "/video-lessons/:id", element: <VideoLessons /> },
       ],
     },
   ]);
