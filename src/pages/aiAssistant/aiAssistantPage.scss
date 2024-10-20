@@ -1,36 +1,80 @@
+.entire-ai-assistant-page {
+    background-color: #d9dcfd;
+}
+
 .ai-assistant-page {
+    position: relative; /* Ensure relative positioning for overlay */
     padding: 4rem 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    background-color: #e6f7ff;
+    background-image: url('../../assets/images/ai-page-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
+  
+    /* Overlay to improve readability */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4); /* Dark overlay with 50% opacity */
+      z-index: 1; /* Ensure overlay is behind content */
+    }
+  
+    /* All content on top of the overlay */
+    h1, p, .chat-window, .chat-button {
+      position: relative;
+      z-index: 2; /* Make sure the button is above the overlay */
+    }
   
     h1 {
       font-size: 2.5rem;
-      color: #2d3748;
+      color: #fff; /* White text to contrast with the background */
       margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
     }
   
     p {
-      font-size: 1.2rem;
-      color: #4a5568;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #f0f0f0;
       margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow */
     }
   
     .chat-button {
       padding: 0.75rem 1.5rem;
+      margin: 0 auto;
       margin-bottom: 2rem;
-      font-size: 1.2rem;
-      background-color: #464c4a;
+      font-size: 1.3rem;
+      background-color: #38a169;  //#464c4a;
+      border-radius: 40px;
       color: #fff;
       border: none;
       border-radius: 5px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
       cursor: pointer;
+      display: flex; /* Add flex for alignment */
+      align-items: center; /* Center align logo with text */
+      justify-content: center;
       transition: background-color 0.3s ease;
+      z-index: 3; /* Make sure it appears above everything */
+  
+      .logo-in-button {
+        width: 80px; /* Increased size */
+        height: 40px; /* Increased size */
+        margin-left: 0.5rem; /* Space between text and logo */
+        margin-right: 0.5rem; /* Space between text and logo */
+        filter: brightness(1.2); /* Lighten the logo */
+      }
   
       &:hover {
-        background-color: #38a169;
+        background-color: #464c4a;
       }
     }
   
@@ -39,7 +83,7 @@
       margin: 0 auto;
       max-width: 90%;
       width: 100%;
-      background-color: #fff;
+      background-color: rgba(217, 220, 253, 0.8); /* Semi-transparent background */
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       padding: 1.5rem;
@@ -47,32 +91,53 @@
       flex-direction: column;
       justify-content: space-between;
       height: 500px; /* Fixed height to ensure proper scrolling */
+      z-index: 2; /* Ensure it stays on top of the overlay */
   
       .chat-messages {
         flex-grow: 1;
-        overflow-y: auto; /* Enable scrolling inside chat messages */
+        overflow-y: auto;
         padding-right: 1rem;
-        max-height: 400px; /* Set max height for messages to control overflow */
+        max-height: 400px;
       }
   
-      .chat-message {
-        margin-bottom: 0.75rem;
-        margin: 0 auto;
-        padding: 0.75rem 1rem;
-        border-radius: 10px;
-        max-width: 80%;
-        word-wrap: break-word;
+      .chat-message-wrapper {
+        margin-bottom: 1.5rem;
+        text-align: left;
+  
+        .message-label {
+          font-weight: bold;
+          color: #555;
+          margin-bottom: 0.25rem;
+          font-size: 1.3rem;
+          display: flex;
+          align-items: center;
+  
+          .ai-logo {
+            width: 90px;
+            height: 40px;
+            margin-right: 0.5rem;
+            filter: brightness(0.5);
+          }
+        }
+  
+        .chat-message {
+          font-size: 1.2rem;
+          padding: 0.75rem 1rem;
+          border-radius: 10px;
+          max-width: 100%;
+          word-wrap: break-word;
+        }
       }
   
       .chat-message.user {
-        background-color: #86b69a;
-        color: white;
+        background-color: #f7f7f7;
+        color: #333;
         align-self: flex-end;
       }
   
       .chat-message.ai {
         background-color: #f7f7f7;
-        color: #333;
+        color: #333;;
         align-self: flex-start;
       }
   
@@ -83,14 +148,14 @@
         input {
           flex-grow: 1;
           padding: 0.75rem;
-          font-size: 1rem;
+          font-size: 1.2rem;
           border-radius: 5px;
           border: 1px solid #ccc;
         }
   
         button {
           padding: 0.75rem 1rem;
-          font-size: 1rem;
+          font-size: 1.2rem;
           background-color: #48bb78;
           color: #fff;
           border: none;
@@ -104,3 +169,21 @@
       }
     }
   }
+
+  .styled-button {
+    background-color: #48bb78;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-left: 0.25rem;
+  
+    &:hover {
+      background-color: #38a169;
+    }
+  }
+  
