@@ -118,7 +118,7 @@ const AiAssistantPage = () => {
   return (
     <div className="entire-ai-assistant-page">
     <div className="ai-assistant-page">
-      <h1>AI Assistant</h1>
+      <h1></h1>
       <p><b>Our AI Assistant is here to help you with your English language learning. Ask any questions you have!</b></p>
       <button className="chat-button" onClick={toggleChat}>
         {isChatOpen ? 'Close Chat' : (
