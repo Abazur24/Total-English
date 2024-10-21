@@ -38,8 +38,9 @@ const AllCourses = () => {
   }, []);
 
   return (
+    <div className="course-background">
     <div className="main-video">
-      {course.slice(0, visibleCourses).map(({ id, image, title, description, duration, price }) => (
+      {Course.slice(0, visibleCourses).map(({ id, image, title, description, duration, price, level }) => (
         <CourseCard 
           key={id}
           id={id}
@@ -48,6 +49,7 @@ const AllCourses = () => {
           description={description}
           duration={duration}
           price={price}
+          level={level}
         /> 
       ))}
       
@@ -59,6 +61,7 @@ const AllCourses = () => {
           </button>
       </div>
       )}
+    </div>
     </div>
   );
 };
