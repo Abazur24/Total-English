@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout, RequiredAuthLayout } from "./layouts/Layout";
 import LandingPage from "./pages/landingPage/LandingPage";
-import TestYourEnglish from './pages/testYourEnglish/TestYourEnglish';  // Import the new page
+import TestYourEnglish from './pages/testYourEnglish/TestYourEnglish';
 import SignupPage from "./pages/signupPage/SignupPage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import CoursesPage from "./pages/coursesPage/CoursesPage";
@@ -18,50 +18,50 @@ import BusinessEnglishPage from "./pages/courses/BusinessEnglishPage";
 import GeneralEnglishPage from './pages/courses/GeneralEnglishPage';
 import EnglishForTravellingPage from './pages/courses/EnglishForTravellingPage';
 import EnglishForChildrenPage from './pages/courses/EnglishForChildrenPage';
-import NotFoundPage from './pages/notFound/NotFoundPage';  // Import the NotFoundPage
+import NotFoundPage from './pages/notFound/NotFoundPage'; 
 import AllCourses from "./pages/allCourses/AllCourses";
 import VideoLessons from "./pages/videoLessons/VideoLessons";
-import {pages, ProfCoursePages} from "./components/profCoursePages/ProfCoursePages";
+import AboutUsPage from "./pages/aboutUs/AboutUsPage"; 
+import AiAssistantPage from './pages/aiAssistant/AiAssistantPage'; // <-- Make sure to import this
+import { pages, ProfCoursePages } from "./components/profCoursePages/ProfCoursePages";
 
-
-// Define the router with all routes
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/', // Main layout and route
+      path: '/', 
       element: <Layout />,
       children: [
-        { path: '/', element: <LandingPage /> }, // Landing page
-        { path: '/test-your-english', element: <TestYourEnglish /> }, // New Test Your English page
-        { path: '/dashboard', element: <DashboardPage /> }, // Dashboard
-        { path: '/login', element: <LoginPage /> }, // Login
-        { path: '/signup', element: <SignupPage /> }, // Signup       
-        { path: '/courses', element: <CoursesPage /> }, // Courses page
-        { path: '/quizzes', element: <QuizzesPage /> }, // Quizzes
-        { path: '/virtual-classroom', element: <VcPage /> }, // Virtual Classroom
-        { path: '/video-lessons', element: <AllCourses />},
-        { path:'/video-lessons/:id',element: <VideoLessons />},
-        { path: "/healthcare", element: <ProfCoursePages {...pages.healthcarePage} /> }, // Healthcare course
-        { path: "/academic", element: <AcademicEnglishPage /> }, // Academic English course
-        { path: "/business", element: <BusinessEnglishPage /> }, // Business English course
-        { path: "/general-english", element: <GeneralEnglishPage /> }, // General English course
-        { path: "/english-for-travelling", element: <EnglishForTravellingPage /> }, // English for Travelling course
-        { path: "/english-for-children", element: <EnglishForChildrenPage /> }, // English for Children course
-        { path: "/finance", element: <ProfCoursePages {...pages.finance} /> },
-        { path: "/sales", element: <ProfCoursePages {...pages.sales}/>  },
-        { path: "/lawyers", element: <ProfCoursePages {...pages.lawyers}/> },
-        { path: "/it", element: <ProfCoursePages {...pages.ItPage}/> },
-        { path: "/humanresourses", element: <ProfCoursePages {...pages.HumanresoursesPage} /> },
+        { path: '/', element: <LandingPage /> }, 
+        { path: '/test-your-english', element: <TestYourEnglish /> },
+        { path: '/dashboard', element: <DashboardPage /> }, 
+        { path: '/login', element: <LoginPage /> }, 
+        { path: '/signup', element: <SignupPage /> },
+        { path: '/courses', element: <CoursesPage /> }, 
+        { path: '/quizzes', element: <QuizzesPage /> }, 
+        { path: '/virtual-classroom', element: <VcPage /> }, 
+        { path: '/video-lessons', element: <AllCourses /> },
+        { path: '/video-lessons/:id', element: <VideoLessons /> },
+        { path: '/healthcare', element: <ProfCoursePages {...pages.healthcarePage} /> }, 
+        { path: '/academic', element: <AcademicEnglishPage /> },
+        { path: '/business', element: <BusinessEnglishPage /> }, 
+        { path: '/general-english', element: <GeneralEnglishPage /> }, 
+        { path: '/english-for-travelling', element: <EnglishForTravellingPage /> }, 
+        { path: '/english-for-children', element: <EnglishForChildrenPage /> }, 
+        { path: '/finance', element: <ProfCoursePages {...pages.finance} /> },
+        { path: '/sales', element: <ProfCoursePages {...pages.sales}/>  },
+        { path: '/lawyers', element: <ProfCoursePages {...pages.lawyers}/> },
+        { path: '/it', element: <ProfCoursePages {...pages.ItPage}/> },
+        { path: '/humanresourses', element: <ProfCoursePages {...pages.HumanresoursesPage} /> },
+        { path: '/about-us', element: <AboutUsPage /> }, 
+        { path: '/ai-assistant', element: <AiAssistantPage /> }, // <-- AI Assistant page route
+        { path: "/humanresourses", element: <ProfCoursePages {...pages.HumanresoursesPage} />},
         { path: "*", element: <NotFoundPage /> }, // 404 page for unknown routes
       ],
     },
-    {
-      path: '/', 
-      element: <RequiredAuthLayout />,
+    { path: "/", element: <RequiredAuthLayout />,
       children: [
-        { 
-          path: '/dashboard', 
-          element: <DashboardPage /> }, 
+        { path: "/dashboard", element: <DashboardPage />},
+        { path: "/video-lessons/:id", element: <VideoLessons /> },
       ],
     },
   ]);

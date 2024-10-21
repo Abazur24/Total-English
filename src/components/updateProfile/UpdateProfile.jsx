@@ -3,17 +3,19 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 import "./updateProfile.scss";
-
+import config from "../../config/config";
 
 const UpdateProfile = () => {
   const { currentUser, updateUser } = useContext(AuthContext);
   const [avatar, setAvatar] = useState(null);
+  const [isSaved, setIsSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    username: currentUser?.username || "Test Name",
-    email: currentUser?.email || "Test Email",
+    name: currentUser?.user?.name || "",
+    email: currentUser?.user?.email || "",
     password: "",
   });
+
 
   const navigate = useNavigate();
 
@@ -24,6 +26,16 @@ const UpdateProfile = () => {
       setAvatar(file);
     }
   };
+
+  const logout = () => {
+    try {
+      localStorage.removeItem('user');
+      updateUser(null);
+      navigate('/login');
+    } catch (error) {
+      console.log('Error during logout:', err);
+    }
+  }
 
   useEffect(() => {
     return () => {
@@ -40,48 +52,80 @@ const UpdateProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const updatedProfile = {
-      name: formData.username, 
-      email: formData.email,   
+      name: formData.name,
+      email: formData.email,
+      password: formData.password
     };
-  
+
     try {
-      const res = await fetch('http://localhost:52872/update-profile', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const res = await fetch(`${config.apiUrl}/api/update-profile`, {
+        method: "PUT",
         body: JSON.stringify(updatedProfile),
+        headers:{
+          'Authorization': `Bearer ${currentUser.token}`
+        }
       });
-  
+      
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.message || 'Failed to update profile');
+        throw new Error(errorData.message || "Failed to update profile");
       }
-  
-      const data = await res.json();
-      console.log('Profile updated successfully:', data);
-      navigate('/dashboard');
-  
+      
+      /* after updating user profile */
+      logout();
+
     } catch (err) {
-      console.error('Error updating profile:', err);
+      console.error("Error updating profile:", err);
     }
   };
-  
+
+  const savePhoto = async (e) => {
+    e.preventDefault();
+    const avatarFormData = new FormData();
+    avatarFormData.append('avatar', avatar);
+
+    try {
+      if(avatar){
+        const res = await fetch(`${config.apiUrl}/savephoto`, {
+          method: "POST",
+          body: avatarFormData,
+          headers: {
+            Authorization: `Bearer ${currentUser.token}`,
+          },
+        });
+        
+        if (!res.ok) {
+          const errorData = await res.json();
+          console.log('errorData:',errorData)
+          throw new Error(errorData.message || "Failed to save profile photo");
+        }
+        
+        /* save photo successfully */
+        setIsSaved(true);
+      }else{
+        alert('Please select the profile photo first.')
+      }
+
+    } catch (error) {
+      console.log('catch block')
+      console.log(error)
+    }
+  }
 
   return (
-    <div className='profileUpdatePage'>
+    <div className="profileUpdatePage">
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Update Profile</h1>
           <div className="item">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="name">name</label>
             <input
-              id="username"
-              name="username"
+              id="name"
+              name="name"
               type="text"
-              value={formData.username}
+              value={formData.name}
               onChange={handleInputChange}
             />
           </div>
@@ -107,17 +151,17 @@ const UpdateProfile = () => {
           </div>
           <button type="submit">Update</button>
         </form>
-  
+
         <div className="sideContainer">
-          <img src={"/noavatar.jpg"} alt="" className="avatar" />
-          <input type="file" onChange={handleChangeAvatar} className="mb-2" />
-          {avatar && (
-            <img
-              src={avatar.preview}
-              alt="Preview"
-              className="preview"
-            />
-          )}
+          <form id="avatar-form" onSubmit={savePhoto}>
+            <label htmlFor="img-selector" id="img-selector-label">
+              <img src={avatar ? avatar.preview : "/noavatar.jpg"}
+                alt="avatar" className="avatar" />
+            </label>
+            <input type="submit" value="Save" id="save-btn" className={isSaved? 'saved' :""}/>
+            <input type="file" onChange={handleChangeAvatar}
+              className="mb-2 img-selector" id="img-selector" />
+          </form>
         </div>
       </div>
     </div>
@@ -125,5 +169,3 @@ const UpdateProfile = () => {
 };
 
 export default UpdateProfile;
-
- 
