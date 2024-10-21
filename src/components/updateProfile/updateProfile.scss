@@ -48,13 +48,7 @@
       margin-top: 100px;
       flex: 1;
 
-      .avatar{
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        position: relative;
-        box-shadow: 2px 3px 5px ;
-      }
+
       input{
         margin: 0 auto;
         font-size: large;
@@ -95,4 +89,15 @@
   &::after{
     content: 'tick'
   }
+}
+
+
+.avatar{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 60% 30%;
+  position: relative;
+  box-shadow: 2px 3px 5px ;
 }
