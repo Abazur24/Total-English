@@ -6,7 +6,7 @@ const VideoLessons = ({ courseID }) => {
   const lecture = Lectures.find(lecture => lecture.courseID === parseInt(courseID));
 
   return (
-    <div className='container'>
+    <div className="container">
       {lecture ? (
         <>
           <h2>{lecture.title} Video Lessons</h2>
