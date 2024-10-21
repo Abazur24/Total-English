@@ -54,16 +54,14 @@ function App() {
         { path: '/humanresourses', element: <ProfCoursePages {...pages.HumanresoursesPage} /> },
         { path: '/about-us', element: <AboutUsPage /> }, 
         { path: '/ai-assistant', element: <AiAssistantPage /> }, // <-- AI Assistant page route
+        { path: "/humanresourses", element: <ProfCoursePages {...pages.HumanresoursesPage} />},
         { path: "*", element: <NotFoundPage /> }, // 404 page for unknown routes
       ],
     },
-    {
-      path: '/', 
-      element: <RequiredAuthLayout />,
+    { path: "/", element: <RequiredAuthLayout />,
       children: [
-        { 
-          path: '/dashboard', 
-          element: <DashboardPage /> }, 
+        { path: "/dashboard", element: <DashboardPage />},
+        { path: "/video-lessons/:id", element: <VideoLessons /> },
       ],
     },
   ]);
