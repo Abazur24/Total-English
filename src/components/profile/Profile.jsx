@@ -1,31 +1,31 @@
 import "./profile.scss";
 import { useNavigate } from "react-router-dom";
-import { useContext} from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-
+import base64String from "../../lib/image_base64";
+import { base64ToBlob } from "../../lib/helpers";
 
 function Profile() {
-
   const { updateUser, currentUser } = useContext(AuthContext);
-
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+      const imageUrl = base64ToBlob(base64String);
+      setImage(imageUrl);
+  }, [currentUser]);
+
+
   const handleLogout = async () => {
     try {
-      // Remove the JWT token from localStorage
       localStorage.removeItem("user");
-  
-      // Update the context to indicate the user is logged out
       updateUser(null);
-  
-      // Redirect to the home page
       navigate("/");
     } catch (err) {
-      console.log('Error during logout:', err);
+      console.log("Error during logout:", err);
     }
   };
-  
-  
-  
+
   return (
     currentUser && (
       <div className="profile">
@@ -37,7 +37,7 @@ function Profile() {
             <div className="info" style={{ textTransform: "capitalize" }}>
               <span>
                 Avatar:
-                <img src={"noavatar.jpg"} alt="avatar" />
+                <img src={image || "noavatar.jpg"} alt="avatar" />
               </span>
               <span>
                 Fullname: <b>{currentUser.user.name}</b>
