@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./profCoursePages.scss";
-import { useNavigate } from "react-router-dom";
+import ContactFormModal from '../ContactFormModal';  // Import the modal
 
-export function ProfCoursePages({ title, image, target, imgalt, description, logo1, logo2,logo3 }) {
-  const navigate = useNavigate();
+export function ProfCoursePages({ title, image, target, imgalt, description, logo1, logo2, logo3 }) {
+  // Modal state for opening and closing
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Functions to handle modal opening and closing
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="content-prof">
       <div className="text-prof">
         <h1 className="heading-prof">{title}</h1>
         <p className="description-prof">{description}</p>
-        <img className="logo-img" src={logo1}/>
-        <img className="logo-img" src={logo2}/>
-        <img className="logo-img" src={logo3}/>
+        <img className="logo-img" src={logo1} alt="logo 1" />
+        <img className="logo-img" src={logo2} alt="logo 2" />
+        <img className="logo-img" src={logo3} alt="logo 3" />
       </div>
 
       <div className="container-prof">
@@ -22,11 +27,14 @@ export function ProfCoursePages({ title, image, target, imgalt, description, log
       <div>
         <button
           className="contact-button-prof"
-          onClick={() => navigate(target)}
+          onClick={openModal}  // Open modal instead of navigating
         >
           Contact Our Manager
         </button>
       </div>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
