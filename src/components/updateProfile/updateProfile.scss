@@ -101,3 +101,15 @@
   position: relative;
   box-shadow: 2px 3px 5px ;
 }
+
+.form-err{
+  color: red;
+  font-size: 0.7em;
+}
+
+.form-submit-err{
+  color: red;
+  width: 300px;
+  position: absolute;
+  bottom: -40px;
+}
