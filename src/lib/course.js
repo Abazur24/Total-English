@@ -104,7 +104,17 @@ export const Lectures = [
 {
     id: 2,
     title: "English for Traveling",
-    courseID: 2,
+    courseID: 1,
+    video: {
+        title: "Introduction to English for Traveling",
+        duration: 10,
+        videoURL: videoTest
+    },    
+},
+{
+    id: 3,
+    title: "English for IT",
+    courseID: 1,
     video: {
         title: "Introduction to General English",
         duration: 10,

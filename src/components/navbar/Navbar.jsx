@@ -1,15 +1,22 @@
-import React, { useContext, useState } from 'react';
-import './navbar.scss';
-import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/TotalEnglishLogo.svg';
-import { AuthContext } from '../../context/AuthContext';
-import userIcon from '../../assets/images/user_icon.svg'
-
+import React, { useContext, useEffect, useState } from "react";
+import "./navbar.scss";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/images/TotalEnglishLogo.svg";
+import { AuthContext } from "../../context/AuthContext";
+import userIcon from "../../assets/images/user_icon.svg";
+import base64String from "../../lib/image_base64";
+import { base64ToBlob } from "../../lib/helpers";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    const imageUrl = base64ToBlob(base64String);
+    setImage(imageUrl);
+  }, [currentUser]);
 
   // Toggles the hamburger menu for mobile screens
   const toggleMenu = () => {
@@ -22,7 +29,7 @@ const Navbar = () => {
     setTimeout(() => {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: "smooth" });
       }
     }, 100); // Delay to allow the page to load before scrolling
   };
@@ -98,13 +105,11 @@ const Navbar = () => {
       {/* Authentication Buttons */}
       {currentUser ? (
         <div className="auth-buttons">
-          <Link className="greeting-txt" to="/dashboard">hi {currentUser.user.name}</Link>
+          <Link className="greeting-txt" to="/dashboard">
+            hi {currentUser.user.name.split(" ")[0]}
+          </Link>
           <span className="greeting-icon">
-            <img
-              src={userIcon}
-              alt="user-icon"
-              style={{ width: "1.2em" }}
-            />
+            <img src={image || userIcon} alt="user-icon" />
           </span>
         </div>
       ) : (

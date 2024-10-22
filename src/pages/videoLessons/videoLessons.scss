@@ -1,3 +1,67 @@
-.container {
-    background-color: red;
+.lessons {
+//   border: 1px solid red;
+  margin-top: 8em;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+.left{
+    padding: 2rem;
+    border: 1px solid green;
+}
+
+.right{
+    border: 1px solid blue;
+}
+// .main-video{
+//     width: 80%;
+//     border: 1px solid tomato;
+// }
+
+/* -------- style the lesson component -------- */
+.video-container {
+  border: 1px solid green;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: 1em;
+  padding: 1.5em;
+  background: #eee;
+}
+
+.video-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.video-snapshot {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.video-content {
+  padding-top: 10px;
+}
+.video-title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.video-caption {
+  font-size: 14px;
+  color: #666;
+}
+.video-duration {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+}
+
+
+.video-button{
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
