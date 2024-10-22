@@ -1,66 +1,74 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "../VcPage/virtualClassroom.scss";
-import classroomImage from "../../assets/images/virtualclassroom2.png";
-import checkImage from "../../assets/images/check-svgrepo-com.png";
+import React, { useState, useEffect, useRef } from "react";
+import io from "socket.io-client"; // Import socket.io-client for real-time communication
+import { JitsiMeeting } from "@jitsi/react-sdk"; // Import Jitsi for video conferencing
+import "./virtualClassroom.scss"; // Your existing SCSS file
+import virtualClassroomImage from "../../assets/images/virtualclassroom2.png"; // Import the image
 
-const virtualClassroom = () => {
+const SOCKET_SERVER_URL = "http://localhost:5000"; // Replace with your server's URL if different
+
+const VirtualClassroom = () => {
+  const [isVideoStarted, setIsVideoStarted] = useState(false);
+  const [roomId, setRoomId] = useState("total-english-room"); // Static room for the class or dynamic if needed
+  const [socket, setSocket] = useState(null);
+
+  // Set up socket connection
+  useEffect(() => {
+    const socketInstance = io(SOCKET_SERVER_URL);
+    setSocket(socketInstance);
+
+    // Clean up socket connection on component unmount
+    return () => {
+      socketInstance.disconnect();
+    };
+  }, []);
+
+  // Start the Jitsi meeting
+  const startVideoConference = () => {
+    setIsVideoStarted(true);
+  };
+
   return (
-    <div className="vc-container">
-      <div className="vc-image-frame">
-        <img src={classroomImage} alt="Virtual Classroom" />
-      </div>
+    <div className="virtual-classroom-page">
+      <h1>Welcome to the Virtual Classroom</h1>
+      <p>Join the live class by starting the video below.</p>
 
-      <div className="vc-text-frame">
-        <h2 className="vc-heading">
-          Learn with the world's English experts in Our virtual classroom
-        </h2>
-        <h3 className="vc-subheading">
-          We help you gain confidence and improve your speaking, pronunciation
-          and vocabulary.
-        </h3>
-        <div className="vc-info-box">
-          <div className="checkmark-align">
-            <div>
-              <img className="vc-checkmark" src={checkImage} alt="checkmark" />
-            </div>
-            <div>
-              <img className="vc-checkmark" src={checkImage} alt="checkmark" />
-            </div>
-            <div>
-              <img className="vc-checkmark" src={checkImage} alt="checkmark" />
-            </div>
-          </div>
-
-          <div className="description-align">
-            <p className="vc-description">
-              Practice in small group classes and private one-to-one classes
-            </p>
-            <br />
-
-            <p className="vc-description">
-              Customise your timetable, Choose classes based on your goals and
-              interests.
-            </p>
-            <br />
-
-            <p className="vc-description">
-              Choose your level. From beginner to advanced.
-            </p>
-          </div>
+      {/* Conditionally render the image */}
+      {!isVideoStarted && (
+        <div className="virtual-classroom-image">
+          <img src={virtualClassroomImage} alt="Virtual Classroom" />
         </div>
+      )}
+      
+      <button className="start-video-button" onClick={startVideoConference}>
+        Start Video Conference
+      </button>
 
-        <div>
-          <button
-            className="vc-contact-button"
-            onClick={() => navigate(target)}
-          >
-            Contact Our Manager
-          </button>
+      {isVideoStarted && (
+        <div className="video-conference">
+          <JitsiMeeting
+            roomName={roomId} // Room ID for the classroom
+            configOverwrite={{
+              startWithAudioMuted: true, // Video starts muted for audio
+              disableModeratorIndicator: true, // Disable moderator label
+            }}
+            interfaceConfigOverwrite={{
+              TOOLBAR_BUTTONS: [
+                "microphone",
+                "camera",
+                "chat",
+                "desktop", // Enables screen sharing
+                "participants-pane",
+              ],
+            }}
+            getIFrameRef={(iframeRef) => {
+              iframeRef.style.height = "600px"; // Set the height of the video
+              iframeRef.style.width = "100%"; // Set the width to 100%
+            }}
+          />
         </div>
-      </div>
+      )}
     </div>
   );
 };
 
-export default virtualClassroom;
+export default VirtualClassroom;
