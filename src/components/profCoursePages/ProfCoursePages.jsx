@@ -93,7 +93,7 @@ export const pages = {
     image: "../src/assets/images/humanresourses.png",
     target: "/humanresourses",
     imgalt: "humanresourses",
-    description: "English for Human Resources (HR) focuses on the language and communication skills needed for HR professionals in an international setting. It covers key areas like recruitment, employee relations, performance management, and legal compliance. Mastering HR-specific vocabulary, drafting formal documents, and conducting interviews are essential. English proficiency in HR also includes understanding labor laws, resolving conflicts, and managing cultural diversity in the workplace. Effective communication in English ensures smoother collaboration, enhances leadership, and supports a company’s global operations. Ultimately, strong English skills in HR contribute to creating a more productive and inclusive work environment.",
+    description: "English for Human Resources (HR) focuses on the language and communication skills needed for HR professionals in an international setting. It covers key areas like recruitment, employee relations, performance management, and legal compliance. Mastering HR-specific vocabulary, drafting formal documents, and conducting interviews are essential. English proficiency in HR also includes understanding labor laws, resolving conflicts, and managing cultural diversity in the workplace. Effective communication in English ensures smoother collaboration, enhances leadership, and supports a company’s global operations.",
     logo1: "../src/assets/images/logos/eng.png",
     logo2: "../src/assets/images/logos/british-council.jpg",
     logo3: "../src/assets/images/logos/oxford.jpg",
