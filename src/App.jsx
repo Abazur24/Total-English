@@ -40,7 +40,7 @@ function App() {
         { path: '/quizzes', element: <QuizzesPage /> }, 
         { path: '/virtual-classroom', element: <VcPage /> }, 
         { path: '/video-lessons', element: <AllCourses /> },
-        { path: '/video-lessons/:id', element: <VideoLessons /> },
+        { path: '/video-lessons/:cid', element: <VideoLessons /> },
         { path: '/healthcare', element: <ProfCoursePages {...pages.healthcarePage} /> }, 
         { path: '/academic', element: <AcademicEnglishPage /> },
         { path: '/business', element: <BusinessEnglishPage /> }, 
