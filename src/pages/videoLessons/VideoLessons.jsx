@@ -1,4 +1,6 @@
-import { Lectures } from '../../lib/course'; // Fixed typo
+
+
+import { Lectures } from '../../lib/course'; 
 import './videoLessons.scss';
 
 const VideoLessons = ({ courseID }) => { 
@@ -24,5 +26,3 @@ const VideoLessons = ({ courseID }) => {
 };
 
 export default VideoLessons;
-
-
