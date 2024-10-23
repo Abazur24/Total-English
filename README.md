@@ -82,10 +82,13 @@ Total English was built to:
   - JSON Web Tokens (JWT) (for secure user authentication)
   
 - **Database**: 
-  - MongoDB (for data storage)
+  - AWS S3
+  - PostgreSQL
+  - GO
+  - JWT
   
 - **Deployment**: 
-  - [Your deployment platform here, e.g., Netlify, Vercel]
+  - 
 
 ---
 
@@ -132,5 +135,5 @@ total-english/
 └── .env                        # Environment variables
 
 # Contact
-Email: zurayev@hotmail.co.uk
-Website: Total English
+- Email: zurayev@hotmail.co.uk
+- Website: Total English

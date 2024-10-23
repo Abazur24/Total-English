@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import io from "socket.io-client"; // Import socket.io-client for real-time communication
-import { JitsiMeeting } from "@jitsi/react-sdk"; // Import Jitsi for video conferencing
-import "./virtualClassroom.scss"; // Your existing SCSS file
+import io from "socket.io-client"; // socket.io-client for real-time communication
+import { JitsiMeeting } from "@jitsi/react-sdk"; // Jitsi for video conferencing
+import "./virtualClassroom.scss"; 
 import virtualClassroomImage from "../../assets/images/virtualclassroom2.png"; // Import the image
 
-const SOCKET_SERVER_URL = "http://localhost:5000"; // Replace with your server's URL if different
+const SOCKET_SERVER_URL = "http://localhost:5000"; // Replace with the server's URL if different
 
 const VirtualClassroom = () => {
   const [isVideoStarted, setIsVideoStarted] = useState(false);
-  const [roomId, setRoomId] = useState("total-english-room"); // Static room for the class or dynamic if needed
+  const [roomId, setRoomId] = useState("total-english-room"); // Static room for the class or dynamic
   const [socket, setSocket] = useState(null);
-  const videoRef = useRef(null); // Create a reference to the video container for fullscreen
+  const videoRef = useRef(null); // a reference created to the video container for fullscreen
 
   // Set up socket connection
   useEffect(() => {
@@ -62,22 +62,22 @@ const VirtualClassroom = () => {
             roomName={roomId} // Room ID for the classroom
             configOverwrite={{
               startWithAudioMuted: true, // Video starts muted for audio
-              disableModeratorIndicator: true, // Disable moderator label
+              disableModeratorIndicator: true, // moderator label disabled
             }}
             interfaceConfigOverwrite={{
               TOOLBAR_BUTTONS: [
                 "microphone",
                 "camera",
                 "chat",
-                "desktop", // Enables screen sharing
+                "desktop", // screen sharing
                 "participants-pane",
-                "fullscreen", // Add fullscreen button to toolbar
+                "fullscreen", 
               ],
-              // You can customize how the fullscreen button looks or behaves here.
+              // Customized fullscreen button looks and actions.
             }}
             getIFrameRef={(iframeRef) => {
-              iframeRef.style.height = "600px"; // Set the height of the video
-              iframeRef.style.width = "100%"; // Set the width to 100%
+              iframeRef.style.height = "600px"; // the height of the video
+              iframeRef.style.width = "100%"; // the width to 100%
             }}
           />
           <button className="fullscreen-button" onClick={toggleFullScreen}>
