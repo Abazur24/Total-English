@@ -15,12 +15,14 @@ h1 {
   font-family: 'Playfair Display', serif;
   letter-spacing: 0.07rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
 p {
   font-size: 1.5rem;
   color: #4a5568;
   margin-bottom: 1rem;
+  margin:0 auto;
   font-family: 'Roboto Slab', serif;
   max-width: 800px;
   line-height: 1.4;
@@ -39,8 +41,8 @@ p {
 }
 
 .start-video-button {
-  padding: 0rem 2rem;
-  font-size: 1.9rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.5rem;
   background-color: #48bb78;
   color: white;
   border: none;
@@ -60,7 +62,7 @@ p {
 }
 
 .video-conference {
-  margin: 1.2rem auto;
+  margin-top: 1rem; /* Adjust gap above the video */
   width: 100%;
   max-width: 1000px; /* Set max width for video */
   height: 600px;
@@ -72,6 +74,24 @@ p {
 
   iframe {
     border-radius: 20px;
+  }
+}
+
+/* Fullscreen button styling */
+.fullscreen-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #0056b3;
   }
 }
 
