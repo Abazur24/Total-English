@@ -86,7 +86,7 @@ const LandingPage = () => {
       />
 
       {/* Professional English Section */}
-      <section className="section professional-english" id="professional-english">
+      <section className="section professional-english" id="professional-english" style={{ backgroundColor: '#b7e0ff' }}>
         <h2>Our English for Professional Purposes Course</h2>
         <div className="card-container">  
           <Card title="English for Healthcare" image={healthcareImage} imgalt="Healthcare" target="/healthcare"/>
