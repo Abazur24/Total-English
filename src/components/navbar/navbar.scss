@@ -65,6 +65,17 @@
 .greeting-txt{
   font-size: 0.9em;
   text-transform: capitalize;
+  text-decoration: none;
+  color: white;
+  &:hover{
+    color: darkblue;
+  }
+}
+
+.greeting-icon{
+  img{
+    width: 2em;
+  }
 }
 
 /* Dropdown styles */
@@ -97,6 +108,7 @@
 /* Auth button styles */
 .auth-buttons {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 

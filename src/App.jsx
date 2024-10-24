@@ -7,12 +7,7 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import CoursesPage from "./pages/coursesPage/CoursesPage";
 import DashboardPage from "./pages/dashboardPage/DashboardPage";
 import QuizzesPage from "./pages/QuizzesPage/QuizzesPage";
-import VcPage from "./pages/VcPage/VirtualClassroom";
-import FinancePage from "./pages/financePage/FinancePage";
-import SalesPage from "./pages/salesPage/SalesPage";
-import HumanresoursesPage from "./pages/humanresoursesPage/HumanresoursesPage";
-import LawyersPage from "./pages/lawyersPage/LawyersPage";
-import ItPage from "./pages/itPage/ItPage";
+import VcPage from "./pages/vcPage/VirtualClassroom";
 import AcademicEnglishPage from "./pages/courses/AcademicEnglishPage";
 import BusinessEnglishPage from "./pages/courses/BusinessEnglishPage";
 import GeneralEnglishPage from './pages/courses/GeneralEnglishPage';
@@ -40,7 +35,7 @@ function App() {
         { path: '/quizzes', element: <QuizzesPage /> }, 
         { path: '/virtual-classroom', element: <VcPage /> }, 
         { path: '/video-lessons', element: <AllCourses /> },
-        { path: '/video-lessons/:id', element: <VideoLessons /> },
+        { path: '/video-lessons/:cid', element: <VideoLessons /> },
         { path: '/healthcare', element: <ProfCoursePages {...pages.healthcarePage} /> }, 
         { path: '/academic', element: <AcademicEnglishPage /> },
         { path: '/business', element: <BusinessEnglishPage /> }, 

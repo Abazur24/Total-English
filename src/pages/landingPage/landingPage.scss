@@ -12,20 +12,20 @@ body, html {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  overflow-y: hidden; /* Prevent vertical overflow */
+  overflow-x: hidden; /* Prevents horizontal overflow */
+  overflow-y: hidden; /* Prevents vertical overflow */
 }
 /* Main container for the landing page */
 .landing-page {
   scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
   overflow-y: auto; /* Enables vertical scrolling */
   scrollbar-width: 0;
-  height: 100vh; /* Ensures the container takes up the full viewport height */
+  height: 100vh; /* the container takes up the full viewport height */
   width: 100%; /* Full width of viewport */
   flex: 1;
   position: relative;
   .section {
-    height: 100vh; /* Full viewport height for each section */
+    height: 100vh; /* viewport height for each section */
     width: 100%; /* Full viewport width */
     display: flex;
     flex-direction: column;
@@ -82,7 +82,7 @@ body, html {
     .course-img {
       margin-top: 0.5rem;
       height: 10rem;
-      // object-fit: cover; /* Ensures the image covers the entire area */
+      // object-fit: cover; 
       border-radius: 0.5rem;
     }
   }
@@ -110,10 +110,10 @@ body, html {
     }
     /* Transparent card overlay */
     .hero-card {
-      background: rgba(255, 255, 255, 0.2); /* Transparent background */
+      background: rgba(255, 255, 255, 0.2); 
       padding: 2rem;
       border-radius: 0.5rem;
-      width: 80%; /* Card spans 80% of the section */
+      width: 80%; 
       max-width: 1200px;
       text-align: center;
       z-index: 1;
@@ -158,7 +158,7 @@ body, html {
     gap: 2rem;
     margin-top: 0.5rem;
     margin-bottom: -3rem;
-    width: 100%; /* Ensure container stays within viewport */
+    width: 100%; /* the container stays within viewport */
     background-color: #a5d7fd;
   }
 
