@@ -1,23 +1,21 @@
 import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Lectures } from "../../lib/course"; // Fixed typo
+import { Lectures } from "../../lib/course";
 import "./videoLessons.scss";
-
 const VideoLessons = () => {
   const { cid } = useParams();
   const courseLectures = Lectures.filter(
     (lecture) => lecture.courseID === parseInt(cid)
   );
-
   return (
     <div className="lessons">
-      <div className="lef">
+      <div className="left-box">
         <VideoPlayer
           videoSrc={courseLectures[0].video.videoURL}
           title={courseLectures[0].video.title}
         />
       </div>
-      <div className="right">
+      <div className="right-block">
         {courseLectures.map((lect) => (
           <div key={lect.id}>
             <Lesson
@@ -33,7 +31,6 @@ const VideoLessons = () => {
     </div>
   );
 };
-
 // VideoCard component
 const Lesson = ({ title, videoURL, duration, cid, vid }) => {
   // Function to format video duration (assuming it's in seconds)
@@ -42,7 +39,6 @@ const Lesson = ({ title, videoURL, duration, cid, vid }) => {
     const secs = seconds % 60;
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
   };
-
   return (
     <div className="video-card">
       {/* <img src={videoURL} alt="Video Snapshot" style={styles.snapshot} /> */}
@@ -54,21 +50,19 @@ const Lesson = ({ title, videoURL, duration, cid, vid }) => {
     </div>
   );
 };
-
 // const VideoPlayer = ({ videoSrc, width = "640px", height = "360px" }) => {
 const VideoPlayer = ({ videoSrc, title }) => {
   const videoRef = useRef(null);
-
   return (
+    <div className="video-box">
     <div style={{ textAlign: "center" }}>
       {/* Video element */}
-      <video ref={videoRef} width={"100%"} height={"600px"} controls>
+      <video ref={videoRef} width={"95%"} height={""} controls>
         <source src={videoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
-      <h3 style={{ textAlign: "left", padding: "1em" }}>{title}</h3>
+      <h3 className="main-video-title">{title}</h3>
+    </div>
     </div>
   );
 };
-
 export default VideoLessons;
