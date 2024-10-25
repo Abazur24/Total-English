@@ -17,7 +17,7 @@
   flex-direction: row;
   padding: 3rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   max-width: 1600px;
   width: 100%;
   gap: 2rem;
@@ -87,34 +87,42 @@
 
 /* Specific background and content-wrapper colors for each page */
 .general-english {
-  background-color: #fdf8ca; /* Yellow for General English */
+  background: linear-gradient(135deg, #fdf8ca, #fff8e1); /* Yellow gradient for General English */
 
   .content-wrapper {
-    background-color: #fff8e1; /* Slightly lighter yellow for content-wrapper */
+    background: linear-gradient(135deg, #fff8e1, #f7e3b2); /* Slightly lighter yellow gradient for content-wrapper */
   }
 }
 
 .academic-english {
-  background-color: #fccfb0; /* Peach for Academic English */
+  background: linear-gradient(135deg, #fccfb0, #ffe4d5); /* Peach gradient for Academic English */
 
   .content-wrapper {
-    background-color: #ffe4d5; /* Lighter peach for content-wrapper */
+    background: linear-gradient(135deg, #ffe4d5, #fbd9c0); /* Lighter peach gradient for content-wrapper */
   }
 }
 
 .business-english {
-  background-color: #bcefaa; /* Light green for Business English */
+  background: linear-gradient(135deg, #bcefaa, #e0f6d3); /* Light green gradient for Business English */
 
   .content-wrapper {
-    background-color: #e0f6d3; /* Lighter green for content-wrapper */
+    background: linear-gradient(135deg, #e0f6d3, #c9edb6); /* Lighter green gradient for content-wrapper */
   }
 }
 
 .english-children {
-  background-color: #fccfb0; /* Peach for English for Children */
+  background: linear-gradient(135deg, #fccfb0, #ffe4d5); /* Peach gradient for English for Children */
 
   .content-wrapper {
-    background-color: #ffe4d5; /* Lighter peach for content-wrapper */
+    background: linear-gradient(135deg, #ffe4d5, #fbd9c0); /* Lighter peach gradient for content-wrapper */
+  }
+}
+
+.travelling-english {
+  background: linear-gradient(135deg, #fdf8ca, #fff8e1); /* Yellow gradient for English for Travelling */
+
+  .content-wrapper {
+    background: linear-gradient(135deg, #fff8e1, #f7e3b2); /* Slightly lighter yellow gradient for content-wrapper */
   }
 }
 

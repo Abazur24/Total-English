@@ -64,7 +64,10 @@ Total English was built to:
   - Vite (for development bundling)
   
 - **Backend**: 
-  
+  - AWS S3
+  - PostgreSQL
+  - GO
+  - JWT
   
 - **Real-Time Communication**: 
   - Socket.IO (for WebSocket-based real-time features)
@@ -88,17 +91,9 @@ Total English was built to:
   - JWT
   
 - **Deployment**: 
-  - 
-
----
+  - render.com
 
 ## **Installation**
-
-### **Prerequisites**
-
-- Node.js (v14 or later)
-- npm (v6 or later) or yarn
-- MongoDB (if you are using MongoDB for data storage)
 
 ### **Clone the Repository**
 
@@ -136,4 +131,4 @@ total-english/
 
 # Contact
 - Email: zurayev@hotmail.co.uk
-- Website: Total English
+- Website: https://english-language-learning-platform-blva.onrender.com
