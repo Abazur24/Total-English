@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/TotalEnglishLogo.svg";
 import { AuthContext } from "../../context/AuthContext";
 import userIcon from "../../assets/images/user_icon.svg";
-import base64String from "../../lib/image_base64";
-import { base64ToBlob } from "../../lib/helpers";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +11,6 @@ const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
   const [image, setImage] = useState(null);
 
-  useEffect(() => {
-    const imageUrl = base64ToBlob(base64String);
-    setImage(imageUrl);
-  }, [currentUser]);
 
   // Toggles the hamburger menu for mobile screens
   const toggleMenu = () => {
@@ -109,7 +103,7 @@ const Navbar = () => {
             hi {currentUser.user.name.split(" ")[0]}
           </Link>
           <span className="greeting-icon">
-            <img src={image || userIcon} alt="user-icon" />
+            <img src={currentUser?.user?.image_url || userIcon} alt="user-icon" />
           </span>
         </div>
       ) : (
