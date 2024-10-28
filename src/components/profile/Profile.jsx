@@ -2,17 +2,11 @@ import "./profile.scss";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import base64String from "../../lib/image_base64";
-import { base64ToBlob } from "../../lib/helpers";
+
 
 function Profile() {
   const { updateUser, currentUser } = useContext(AuthContext);
-  // const [image, setImage] = useState();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //     setImage(updateUser?.user?.image_url);
-  // }, [currentUser]);
 
 
   const handleLogout = async () => {

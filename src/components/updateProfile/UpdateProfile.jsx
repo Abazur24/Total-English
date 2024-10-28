@@ -20,7 +20,6 @@ const UpdateProfile = () => {
     password: "",
   });
 
-
   const navigate = useNavigate();
 
   const handleChangeAvatar = (e) => {
@@ -40,13 +39,6 @@ const UpdateProfile = () => {
       console.log('Error during logout:', error.message);
     }
   }
-
-
-  useEffect(() => {
-    if (currentUser?.user?.image_url) {
-      setAvatar({ image_url: currentUser?.user?.image_url });
-    }
-  }, [currentUser?.user?.image_url]);
 
   const handleInputChange = (e) => {
     // validateForm();
@@ -100,7 +92,7 @@ const UpdateProfile = () => {
     try {
       if(avatar){
         const res = await fetch(
-          `${config.apiUrl}/api/upload-image/${currentUser.user.id}`,
+          `${config.apiUrl}/api/upload-image/${currentUser?.user?.id}`,
           {
             method: "PUT",
             body: avatarFormData,
@@ -117,7 +109,13 @@ const UpdateProfile = () => {
         }
         
         /* save photo successfully */
+        const curData = JSON.parse(localStorage.getItem('user'));
+        const resData = await res.json();
+        curData.user.image_url = resData.image_url
+        localStorage.setItem('user',JSON.stringify(curData))
+        updateUser(curData)
         setIsSaved(true);
+
       }else{
         alert('Please select the profile photo first.')
       }
@@ -126,7 +124,6 @@ const UpdateProfile = () => {
       setImgErr(error.message)
     }
   }
-
 
   // validate form data
   const validationSchema = Yup.object().shape({
@@ -138,7 +135,6 @@ const UpdateProfile = () => {
               .matches(/[0-9]/, 'at least one digit')
               .matches(/[!/_#.,*]/, 'at least one one special char')
   });
-
 
   const validateForm = async() => {
     try {
@@ -155,7 +151,12 @@ const UpdateProfile = () => {
     }
   }
 
-
+  useEffect(() => {
+    if (currentUser?.user?.image_url) {
+      setAvatar({ image_url: currentUser?.user?.image_url });
+    }
+  }, [currentUser?.user?.image_url]);
+  
   useEffect(() => {
     validateForm();
   }, [formData])

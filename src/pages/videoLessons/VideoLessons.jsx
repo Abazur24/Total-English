@@ -15,19 +15,20 @@ const VideoLessons = () => {
     );
     setFilteredLects(courseLectures);
     setSelectedVideo(courseLectures[0] || null);
-  }, []);
+  }, [cid]);
 
   return (
     <div className="lessons">
-      <div className="lef">
+      <div className="left-box">
         {selectedVideo && (
           <VideoPlayer
+            key={selectedVideo?.id} // force re-render
             src={selectedVideo?.video?.videoURL}
             title={selectedVideo?.video?.title}
           />
         )}
       </div>
-      <div className="right">
+      <div className="right-block">
         {filteredLects.map((lect) => (
           <div key={lect?.id} onClick={() => setSelectedVideo(lect)}>
             <Lesson
@@ -66,7 +67,7 @@ const VideoPlayer = ({ src, title }) => {
   return (
     <div className="video-box">
     <div style={{ textAlign: "center" }}>
-      <video ref={videoRef} width="100%" height="600px" controls>
+      <video ref={videoRef} width="100%" height="600px" controls preload="auto">
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
