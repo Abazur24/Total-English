@@ -19,7 +19,7 @@ const VideoLessons = () => {
 
   return (
     <div className="lessons">
-      <div className="left-box">
+      <div className="left-block">
         {selectedVideo && (
           <VideoPlayer
             key={selectedVideo?.id} // force re-render
@@ -29,6 +29,7 @@ const VideoLessons = () => {
         )}
       </div>
       <div className="right-block">
+        <h3>List of Videos:</h3>
         {filteredLects.map((lect) => (
           <div key={lect?.id} onClick={() => setSelectedVideo(lect)}>
             <Lesson
