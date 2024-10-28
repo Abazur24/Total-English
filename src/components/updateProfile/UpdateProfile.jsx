@@ -11,6 +11,7 @@ const UpdateProfile = () => {
   const [avatar, setAvatar] = useState(null);
   const [isSaved, setIsSaved] = useState(false);
   const [errs, setErrs] = useState({});
+  const [imgErr, setImgErr] = useState("");
   const [formErr, setFormErr] = useState("");
 
   const [formData, setFormData] = useState({
@@ -36,15 +37,16 @@ const UpdateProfile = () => {
       updateUser(null);
       navigate('/login');
     } catch (error) {
-      console.log('Error during logout:', err);
+      console.log('Error during logout:', error.message);
     }
   }
 
+
   useEffect(() => {
-    return () => {
-      if (avatar) URL.revokeObjectURL(avatar.preview);
-    };
-  }, [avatar]);
+    if (currentUser?.user?.image_url) {
+      setAvatar({ image_url: currentUser?.user?.image_url });
+    }
+  }, [currentUser?.user?.image_url]);
 
   const handleInputChange = (e) => {
     // validateForm();
@@ -93,15 +95,17 @@ const UpdateProfile = () => {
   const savePhoto = async (e) => {
     e.preventDefault();
     const avatarFormData = new FormData();
-    avatarFormData.append('avatar', avatar);
+    avatarFormData.append('file', avatar);
 
     try {
       if(avatar){
-        const res = await fetch(`${config.apiUrl}/api/upload-image/${currentUser.user.id}`,{
+        const res = await fetch(
+          `${config.apiUrl}/api/upload-image/${currentUser.user.id}`,
+          {
             method: "PUT",
             body: avatarFormData,
             headers: {
-              Authorization: `Bearer ${currentUser.token}`,
+              'Authorization': `Bearer ${currentUser.token}`,
             },
           }
         );
@@ -109,7 +113,7 @@ const UpdateProfile = () => {
         if (!res.ok) {
 
           const errorData = await res.text();
-          throw new Error(errorData || "Failed to save profile photo");
+          throw new Error("Failed to save profile photo");
         }
         
         /* save photo successfully */
@@ -119,7 +123,7 @@ const UpdateProfile = () => {
       }
 
     } catch (error) {
-      console.log(error)
+      setImgErr(error.message)
     }
   }
 
@@ -201,11 +205,16 @@ const UpdateProfile = () => {
           <form id="avatar-form" onSubmit={savePhoto}>
             <label htmlFor="img-selector" id="img-selector-label">
               <img
-                src={avatar ? avatar.preview : "/noavatar.jpg"}
+                src={
+                   avatar
+                    ? avatar.preview || avatar.image_url
+                    : "/noavatar.jpg"
+                }
                 alt="avatar"
                 className="avatar"
               />
             </label>
+            <span className="img-err">{imgErr && imgErr}</span>
             <input
               type="submit"
               value="Save"
@@ -220,7 +229,7 @@ const UpdateProfile = () => {
             />
           </form>
         </div>
-          <span className="form-submit-err">{(formErr)}</span>
+        <span className="form-submit-err">{formErr}</span>
       </div>
     </div>
   );

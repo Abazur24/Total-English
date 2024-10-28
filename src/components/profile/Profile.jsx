@@ -7,13 +7,12 @@ import { base64ToBlob } from "../../lib/helpers";
 
 function Profile() {
   const { updateUser, currentUser } = useContext(AuthContext);
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState();
   const navigate = useNavigate();
 
-  useEffect(() => {
-      const imageUrl = base64ToBlob(base64String);
-      setImage(imageUrl);
-  }, [currentUser]);
+  // useEffect(() => {
+  //     setImage(updateUser?.user?.image_url);
+  // }, [currentUser]);
 
 
   const handleLogout = async () => {
@@ -37,7 +36,7 @@ function Profile() {
             <div className="info" style={{ textTransform: "capitalize" }}>
               <span>
                 Avatar:
-                <img src={image || "noavatar.jpg"} alt="avatar" />
+                <img src={currentUser?.user?.image_url || "noavatar.jpg"} alt="avatar" />
               </span>
               <span>
                 Fullname: <b>{currentUser.user.name}</b>
