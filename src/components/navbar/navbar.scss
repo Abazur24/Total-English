@@ -73,6 +73,11 @@
 }
 
 .greeting-icon{
+  border-radius: 50%;
+  border: 1px solid;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
   img{
     width: 2em;
   }
