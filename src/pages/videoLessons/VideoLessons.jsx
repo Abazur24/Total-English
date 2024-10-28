@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Lectures } from "../../lib/course";
 import "./videoLessons.scss";
-
 const VideoLessons = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [filteredLects, setFilteredLects] = useState([]);
@@ -51,7 +50,6 @@ const Lesson = ({ title, videoURL, duration }) => {
     const secs = seconds % 60;
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
   };
-
   return (
     <div className="video-card">
       <video src={videoURL} className="video-snapshot" />
@@ -65,16 +63,16 @@ const Lesson = ({ title, videoURL, duration }) => {
 
 const VideoPlayer = ({ src, title }) => {
   const videoRef = useRef(null);
-
   return (
+    <div className="video-box">
     <div style={{ textAlign: "center" }}>
       <video ref={videoRef} width="100%" height="600px" controls>
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <h3 style={{ textAlign: "left", padding: "1em" }}>{title}</h3>
+      <h3 className="main-video-title">{title}</h3>
+    </div>
     </div>
   );
 };
-
 export default VideoLessons;

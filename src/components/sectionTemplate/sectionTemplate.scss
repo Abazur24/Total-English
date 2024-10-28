@@ -28,7 +28,7 @@
     /* Background Image Styling */
     background-size: cover;
     background-position: center;
-    background-blend-mode: darken; /* Blend background image for better contrast */
+    background-blend-mode: darken; /* Blends background image for better contrast */
     
     /* Add the transparency overlay */
     &::before {
@@ -60,9 +60,9 @@
       margin-bottom: 2rem;
       max-width: 900px;
       line-height: 1.75;
-      flex-grow: 1; /* Allow the paragraph to take up space and push button down */
+      flex-grow: 1; /* Allows the paragraph to take up space and push button down */
       display: flex;
-      align-items: center; /* Center the text vertically within its space */
+      align-items: center; /* Centers the text vertically within its space */
     }
 
     .styled-button {
