@@ -29,7 +29,7 @@ const VideoLessons = () => {
         )}
       </div>
       <div className="right-block">
-        <h3>List of Videos:</h3>
+        <h3>{filteredLects[0]?.title||"List of Videos:"}</h3>
         {filteredLects.map((lect) => (
           <div key={lect?.id} onClick={() => setSelectedVideo(lect)}>
             <Lesson
