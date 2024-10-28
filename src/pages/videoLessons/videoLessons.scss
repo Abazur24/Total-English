@@ -54,7 +54,7 @@
 
   .video-card{
     display: flex;
-    align-items: end;
+    align-items: center;
     gap: 1em;
     font-size: smaller;
     background: #ddd;
@@ -89,7 +89,9 @@
     }
     .video-card{
       video{
-        width: 40%;
+        height: 100%;
+        width: 60%;
+        object-fit: cover;
       }
       .video-title{
         font-size: 0.8em;
